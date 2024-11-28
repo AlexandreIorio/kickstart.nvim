@@ -161,8 +161,6 @@ vim.opt.scrolloff = 20
 --  See `:help vim.keymap.set()`
 vim.keymap.set('i', 'ii', '<Esc>', { desc = 'Double i to escape insert mode' })
 -- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', 'é', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -278,6 +276,32 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
     config = function()
       require('easy-dotnet').setup()
+    end,
+  },
+
+  -- NOTE : Dotnet
+  {
+    'mfussenegger/nvim-dap',
+    config = function()
+      require('dotnet').setup()
+    end,
+  },
+  -- NOTE : plantuml
+  {
+    'https://gitlab.com/itaranto/plantuml.nvim',
+    version = '*',
+    config = function()
+      require('plantuml').setup {
+        renderer = {
+          type = 'image',
+          options = {
+            prog = 'feh',
+            dark_mode = true,
+            format = nil, -- Allowed values: nil, 'png', 'svg'.
+          },
+        },
+        render_on_write = true,
+      }
     end,
   },
 
