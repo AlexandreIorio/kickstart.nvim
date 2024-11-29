@@ -692,6 +692,7 @@ require('lazy').setup({
         pyright = {},
         rust_analyzer = {},
         verible = {},
+        vhdl_ls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -796,6 +797,8 @@ require('lazy').setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         javascript = { { 'prettierd', 'prettier' } },
+        sv = { 'verible-verilog-format' },
+        vhdl = { 'vsg' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },
