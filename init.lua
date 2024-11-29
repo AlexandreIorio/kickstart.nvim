@@ -279,6 +279,8 @@ require('lazy').setup({
     end,
   },
 
+  'matze/vim-move',
+
   -- NOTE : Dotnet
   {
     'mfussenegger/nvim-dap',
